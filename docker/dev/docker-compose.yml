@@ -1,0 +1,35 @@
+version: '3'
+
+networks:
+  backend_network:
+    driver: bridge
+
+services:
+
+  # sudo docker run -d -p 3000:3000 -v /your-path-to-the/docker/dev/apiServer:/usr/src/app 
+  #   --name ApiServer -it claclacla/api-server
+
+  api-server:
+    build: ./apiServer
+    image: claclacla/api-server
+    container_name: ApiServer
+    networks:
+      - backend_network
+    ports:
+      - 3000:3000  
+    volumes:
+      - "${API_SERVER_FOLDER}:/usr/src/app"
+
+  # sudo docker run -d -p 8080:8080 -v /your-path-to-the/public:/usr/src/app 
+  #   --name WebServer -it claclacla/spa-http-server
+
+  web-server:
+    build: ./webServer
+    image: claclacla/web-server
+    container_name: WebServer
+    networks:
+      - backend_network
+    ports:
+      - 8080:8080
+    volumes:
+      - "${WEB_SERVER_FOLDER}:/usr/src/app"

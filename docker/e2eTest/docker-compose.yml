@@ -1,0 +1,49 @@
+version: '3'
+
+networks:
+  e2e_network:
+    driver: bridge
+
+services:
+
+  # sudo docker run -d -p 8080:8080 -v /your-path-to-the/public:/usr/src/app 
+  #   --name E2eTestWebServer -it claclacla/spa-http-server
+
+  web-server:
+    build: ../dev/webServer
+    image: claclacla/web-server
+    container_name: E2eTestWebServer
+    networks:
+      - e2e_network
+    ports:
+      - 8080:8080
+    volumes:
+      - "${WEB_SERVER_FOLDER}:/usr/src/app"
+
+  # sudo docker run -d -p 4444:4444 --name Selenium -it claclacla/selenium
+
+  selenium:
+    build: ./selenium
+    image: claclacla/selenium
+    container_name: Selenium
+    networks:
+      - e2e_network
+    ports:
+      - 4444:4444  
+
+  # sudo docker run -v /your-path-to-the/docker/dev/nightwatch:/usr/src/app -d --name Nightwatch 
+  # --link Selenium:Selenium --link E2eTestWebServer:E2eTestWebServer -it claclacla/nightwatch
+
+  nightwatch:
+    build: ./nightwatch
+    image: claclacla/nightwatch
+    container_name: Nightwatch
+    networks:
+      - e2e_network
+    volumes:
+      - "${NIGHTWATCH_FOLDER}:/usr/src/app"
+    links:
+      - selenium
+      - web-server
+    tty: true
+    stdin_open: true  

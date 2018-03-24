@@ -1,0 +1,42 @@
+{
+  "name": "e2e-test-reactjs-app-mocking-api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/webpack -d -w --config webpack.dev.js",
+    "e2e-test": "node_modules/.bin/webpack -d --config webpack.e2eTest.js",
+    "build": "node_modules/.bin/webpack -d --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claclacla/e2e-test-reactjs-app-mocking-api-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claclacla/e2e-test-reactjs-app-mocking-api-server/issues"
+  },
+  "homepage": "https://github.com/claclacla/e2e-test-reactjs-app-mocking-api-server#readme",
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.37",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "forerunnerdb": "^2.0.20",
+    "preprocess-loader": "^0.2.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
+  }
+}

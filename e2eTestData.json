@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "uid": "fOgkR5b1",
+      "name": "Product name"
+    },
+    {
+      "uid": "pLf93rF5",
+      "name": "Another product name"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "e2eTest": {
+    "data": {
+      "filename": "./e2eTestData.json"
+    }
+  },
+  "dev": {
+    "api": {
+      "address": "http://localhost:3000"
+    }
+  },
+  "prod": {
+    "api": {
+      "address": "http://localhost:3000"
+    }
+  }
+}

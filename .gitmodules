@@ -1,0 +1,3 @@
+[submodule "src/lib/pure-src"]
+	path = src/lib/pure-src
+	url = https://github.com/claclacla/PureSrc-A-functional-programming-approach-to-the-repository-pattern.git
